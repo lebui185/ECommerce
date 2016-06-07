@@ -11,8 +11,11 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Sign in</a></li>
-        <li><a href="#">Sign up</a></li>
+		<li><a [style.display]="_userType >= 0?'inherit':'none'" >Hello {{_username}}</a></li>
+		<li><a href="#" data-toggle="modal" data-target="#cartModel"  [style.display]="_userType >= 0?'inherit':'none'" >My cart</a></li>
+		<li><a href="#" [style.display]="_userType >= 0?'inherit':'none'" (click) = "OnClickSignOut()">Sign out</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#siginModel" [style.display]="_userType < 0?'inherit':'none'">Sign in</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#sigupModel" [style.display]="_userType < 0?'inherit':'none'" >Sign up</a></li>
       </ul>
       <form class="navbar-form navbar-right" (ngSubmit)="onSearch()">
         <input type="text" class="form-control" placeholder="Search...">
@@ -20,3 +23,11 @@
     </div>
   </div>
 </nav>
+
+<!-- Diaglog -->
+
+<ec-signin [callback]="theBoundCallback" class="modal fade" id="siginModel" role="dialog" ></ec-signin>
+<ec-mycart class="modal fade" id="cartModel" role="dialog"></ec-mycart>
+<ec-signin class="modal fade" id="sigupModel" role="dialog" ></ec-signin>
+
+<!-- End Diaglog -->

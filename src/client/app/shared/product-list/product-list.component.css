@@ -19,22 +19,23 @@
     }
 }
 
-.test-1{
+.animtedComponentShortDetail-1{
 	-webkit-animation-name: rightToLeft;
 	-webkit-animation-iteration-count: 1;
 	-webkit-animation-duration: 0.5s;
 }
-.test-2{
+
+.animtedComponentShortDetail-2{
 	-webkit-animation-name: rightToLeft;
 	-webkit-animation-iteration-count: 1;
 	-webkit-animation-duration: 1s;
 }
-.test-3{
+.animtedComponentShortDetail-3{
 	-webkit-animation-name: rightToLeft;
 	-webkit-animation-iteration-count: 1;
 	-webkit-animation-duration: 1.5s;
 }
-.test-4{
+.animtedComponentShortDetail-4{
 	-webkit-animation-name: rightToLeft;
 	-webkit-animation-iteration-count: 1;
 	-webkit-animation-duration: 0.5s;
@@ -42,7 +43,7 @@
 	-webkit-animation-fill-mode: forwards;
 	opacity:0;
 }
-.test-5{
+.animtedComponentShortDetail-5{
 	-webkit-animation-name: rightToLeft;
 	-webkit-animation-iteration-count: 1;
 	-webkit-animation-duration: 1s;
@@ -50,7 +51,7 @@
 	-webkit-animation-fill-mode: forwards;
 	opacity:0;
 }
-.test-6{
+.animtedComponentShortDetail-6{
 	-webkit-animation-name: rightToLeft;
 	-webkit-animation-iteration-count: 1;
 	-webkit-animation-duration: 1.5s;
@@ -58,7 +59,7 @@
 	-webkit-animation-fill-mode: forwards;
 	opacity:0;
 }
-.test-7{
+.animtedComponentShortDetail-7{
 	-webkit-animation-name: rightToLeft;
 	-webkit-animation-iteration-count: 1;
 	-webkit-animation-duration: 0.5s;
@@ -66,7 +67,7 @@
 	-webkit-animation-fill-mode: forwards;
 	opacity:0;
 }
-.test-8{
+.animtedComponentShortDetail-8{
 	-webkit-animation-name: rightToLeft;
 	-webkit-animation-iteration-count: 1;
 	-webkit-animation-duration: 1s;
@@ -74,7 +75,7 @@
 	-webkit-animation-fill-mode: forwards;
 	opacity:0;
 }
-.test-9{
+.animtedComponentShortDetail-9{
 	-webkit-animation-name: rightToLeft;
 	-webkit-animation-iteration-count: 1;
 	-webkit-animation-duration: 1.5s;

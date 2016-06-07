@@ -18,7 +18,7 @@ export class ProductDetailComponent implements OnActivate {
   _title: string = "Product";
 	_product : Product;
 	
-	_userType:number =  1;
+	_userType:number =  -1;
 
   constructor(private _productService: ProductService,
 				private _cartService: CartService,
@@ -31,7 +31,7 @@ export class ProductDetailComponent implements OnActivate {
 	let idx = routeSegment.getParam('idx');
     console.log(category);
 	console.log(idx);
-	this._product = this._productService.getProduct(idx, category);
+	this._product = this._productService.getProduct(parseInt(idx, 10), category);
     this._title = category;
 	
 	this._userType = this._userService.getUserType(this.ANYID);

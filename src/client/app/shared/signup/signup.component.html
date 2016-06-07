@@ -1,0 +1,26 @@
+<div class="modal-dialog modal-sm">
+  <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" data-dismiss="modal">&times;</button>
+	  <h4 class="modal-title">Sign up</h4>
+	</div>
+	<div class="modal-body">
+		<div class="row">
+			<span class="col-md-4">Username:</span>
+			<input [(ngModel)]="_username" class="col-md-7" placeholder="Username">
+		</div>
+		<div class="row">
+			<span class="col-md-4">Password:</span>
+			<input [(ngModel)]="_password" type="password" class="col-md-7" placeholder="Password">
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" data-dismiss="modal"
+		(click)="OnClickSignUp()">OK</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	</div>
+  </div>
+</div>
+
+
+

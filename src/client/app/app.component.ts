@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import {ROUTER_PROVIDERS, ROUTER_DIRECTIVES, Routes } from '@angular/router';
 import { HTTP_PROVIDERS} from '@angular/http';
 
-import { UserService,CartService,ProductService,ProductDetailComponent, NavbarComponent, SidebarComponent, ProductListComponent} from './shared/index';
+import { UserService,CartService,ProductService, 
+MyCartComponent,ProductDetailComponent, NavbarComponent, SidebarComponent, ProductListComponent ,SigninComponent,SignupComponent} from './shared/index';
 
 @Component({
   moduleId: module.id,
@@ -10,7 +11,7 @@ import { UserService,CartService,ProductService,ProductDetailComponent, NavbarCo
   viewProviders: [HTTP_PROVIDERS, CartService,UserService, ProductService],
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives: [ROUTER_DIRECTIVES,ProductDetailComponent, NavbarComponent, SidebarComponent],
+  directives: [ROUTER_DIRECTIVES,MyCartComponent,ProductDetailComponent, NavbarComponent, SidebarComponent, SigninComponent,SignupComponent],
   providers: [ROUTER_PROVIDERS]
 })
 @Routes([
