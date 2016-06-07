@@ -7,3 +7,4 @@ export * from './sidebar/index';
 export * from './product-list/index';
 export * from './cart/index';
 export * from './product-detail/index';
+export * from './user/index';

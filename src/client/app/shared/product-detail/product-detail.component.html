@@ -10,11 +10,11 @@
 				<p>{{_product.detail}}<p>
 				<h3>Price: <span id="VeryBigPrice">{{_product.price}}$</span></h3>
 				<div class = "row">
-					<button [style.display]="_userType?'inherit':'none'" class="btn btn-primary btn-lg col-md-4 col-md-push-4"> Update Product</button>
-					<button [style.display]="_userType?'inherit':'none'" class="btn btn-danger btn-lg col-md-4 col-md-push-4"> Remove Product</button>
+					<button [style.display]="_userType > 0?'inherit':'none'" class="btn btn-primary btn-lg col-md-4 col-md-push-4"> Update Product</button>
+					<button [style.display]="_userType > 0?'inherit':'none'" class="btn btn-danger btn-lg col-md-4 col-md-push-4"> Remove Product</button>
 				</div>
 				<div class = "row">
-					<button [style.display]="_userType?'none':'inherit'" class="btn btn-success btn-lg col-md-4 col-md-push-8"> Add to Cart</button>
+					<button [style.display]="_userType > 0?'none':'inherit'" class="btn btn-success btn-lg col-md-4 col-md-push-8"> Add to Cart</button>
 				</div>
 			</div>
 		</div>

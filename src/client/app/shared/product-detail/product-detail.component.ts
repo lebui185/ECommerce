@@ -3,6 +3,7 @@ import { OnActivate, RouteSegment } from '@angular/router';
 import { Product } from '../product/product';
 import { ProductService } from '../product/product.service';
 import { CartService } from '../cart/cart.service';
+import { UserService } from '../user/user.service';
 
 @Component({
   moduleId: module.id,
@@ -11,12 +12,17 @@ import { CartService } from '../cart/cart.service';
   styleUrls: ['product-detail.component.css']
 })
 export class ProductDetailComponent implements OnActivate { 
+  
+  ANYID:number = 15243698; // HardCode
+  
   _title: string = "Product";
 	_product : Product;
-	_userType:boolean =  true;
+	
+	_userType:number =  1;
 
   constructor(private _productService: ProductService,
-				_cartService: CartService) {
+				private _cartService: CartService,
+				private _userService: UserService) {
 
   }
   
@@ -25,8 +31,10 @@ export class ProductDetailComponent implements OnActivate {
 	let idx = routeSegment.getParam('idx');
     console.log(category);
 	console.log(idx);
-	this._product = this._productService.getProduct(idx,category);
+	this._product = this._productService.getProduct(idx, category);
     this._title = category;
+	
+	this._userType = this._userService.getUserType(this.ANYID);
     
     console.log(this._product.name);
 	console.log(this._product.imgUrl);
