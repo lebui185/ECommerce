@@ -1,7 +1,9 @@
+/*
 .nav-sidebar {
   margin-right: -21px;
   margin-bottom: 20px;
   margin-left: -20px;
+  height: 100%;
 }
 .nav-sidebar > li > a {
   padding-right: 20px;
@@ -12,4 +14,55 @@
 .nav-sidebar > .active > a:focus {
   color: #fff;
   background-color: #428bca;
+}*/
+
+/* http://bootsnipp.com/snippets/featured/navigation-sidebar-with-toggle */
+
+#sidebar-wrapper {
+    background: #FAFAFA;
+    position: fixed;
+    height: 100%;
+	margin-top:1px;
+    z-index: 10000;
+	margin-left: -20px;
+	border-right:1px solid #EEEEEE;
 }
+
+.sidebar-nav {
+    display: block;
+    float: left;
+    width: 200px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#sidebar_menu li a, .sidebar-nav li a {
+    display: block;
+    float: left;
+    text-decoration: none;
+    width: 200px;
+    background: #FAFAFA;
+    border-top: 1px solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.sidebar-nav li {
+  line-height: 40px;
+  text-indent: 20px;
+}
+
+
+.sidebar-nav li a:hover {
+  color: #212121;
+  background: rgba(189,189,189,0.7);
+  -webkit-transition-duration: 1s;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  background: rgba(189,189,189,0.3);
+}
+
+
+
