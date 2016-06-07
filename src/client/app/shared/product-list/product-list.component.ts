@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { OnActivate, RouteSegment } from '@angular/router';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Product } from '../product/product';
 import { ProductService } from '../product/product.service';
 
@@ -7,7 +8,8 @@ import { ProductService } from '../product/product.service';
   moduleId: module.id,
   selector: 'ec-product-list',
   templateUrl: 'product-list.component.html',
-  styleUrls: ['product-list.component.css']
+  styleUrls: ['product-list.component.css'],
+  directives: [ROUTER_DIRECTIVES],
 })
 export class ProductListComponent implements OnActivate { 
   _title: string = "Product List";
