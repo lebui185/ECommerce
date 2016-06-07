@@ -23,7 +23,5 @@ export class ProductListComponent implements OnActivate {
     console.log(category);
     this._title = category;
     this._products = this._productService.getProducts(category);
-    
-    console.log(this._products[0].name);
   }
 }

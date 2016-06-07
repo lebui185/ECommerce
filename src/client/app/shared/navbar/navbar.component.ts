@@ -10,4 +10,8 @@ export class NavbarComponent {
   onSearch(): void {
     alert("submit");
   }
+
+  onSignIn(): void {
+    $("#signin-modal").modal();
+  }
 }

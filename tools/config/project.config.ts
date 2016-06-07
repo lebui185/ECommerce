@@ -15,8 +15,9 @@ export class ProjectConfig extends SeedConfig {
     super();
     // this.APP_TITLE = 'Put name of your app here';
     let additional_deps: InjectableDependency[] = [
+      // // {src: 'lodash/lodash.min.js', inject: 'libs'},
       {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
-      // {src: 'lodash/lodash.min.js', inject: 'libs'},
+      {src: 'firebase/firebase.js', inject: 'libs'},
       {src: 'bootstrap/dist/js/bootstrap.min.js', inject: 'libs'},
       {src: 'bootstrap/dist/css/bootstrap.min.css', inject: true},
     ];

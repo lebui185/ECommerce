@@ -13,35 +13,16 @@ export class ProductService {
     }
     
     getProducts(category: string): Product[] {
-        // switch (category.toLowerCase()) {
-        //     case "mobile phone":
-        //         return [
-        //             {
-        //                 "id": 1,
-        //                 "name": "IPhone6",
-        //                 "imgUrl": "",
-        //                 "price": 600,
-        //                 "category": "mobile phone",
-        //             },
-        //             {
-        //                 "id": 1,
-        //                 "name": "IPhone6",
-        //                 "imgUrl": "",
-        //                 "price": 600,
-        //                 "category": "mobile phone",
-        //             }
-        //         ];
-                
-        //     default:
-        //         return null;     
-        // }   
-        
+        switch (category.toLowerCase()) {
+            case "mobile phone":
                 return [
                     {
                         "id": 1,
                         "name": "IPhone6",
                         "imgUrl": "",
                         "price": 600,
+                        "shortDetail": "Short detail",
+                        "detail": "detail",
                         "category": "mobile phone",
                     },
                     {
@@ -49,9 +30,13 @@ export class ProductService {
                         "name": "IPhone6",
                         "imgUrl": "",
                         "price": 600,
+                        "shortDetail": "Short detail",
+                        "detail": "detail",
                         "category": "mobile phone",
-                    }
-                ];    
-        } 
+                    },
+                ];
+            default:
+                return null;          
+        }
     }
-}
+}  
