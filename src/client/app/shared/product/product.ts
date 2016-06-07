@@ -3,5 +3,7 @@ export class Product {
   name: string;
   imgUrl: string;
   price: number;
+  shortDetail:string;
+  detail: string;
   category: string;
 }
