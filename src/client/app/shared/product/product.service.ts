@@ -102,7 +102,8 @@ export class ProductService {
 		return this._products;
 	} 
 	
-	getProduct(idx: number): Product{
+	getProduct(idx: number, category:string): Product{
+		
 		return this._products[idx];
 	}
 }

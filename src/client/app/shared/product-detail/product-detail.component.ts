@@ -13,6 +13,7 @@ import { CartService } from '../cart/cart.service';
 export class ProductDetailComponent implements OnActivate { 
   _title: string = "Product";
 	_product : Product;
+	_userType:boolean =  true;
 
   constructor(private _productService: ProductService,
 				_cartService: CartService) {
@@ -24,9 +25,10 @@ export class ProductDetailComponent implements OnActivate {
 	let idx = routeSegment.getParam('idx');
     console.log(category);
 	console.log(idx);
-	this._product = this._productService.getProduct(idx);
-    this._title = this._product.name;
+	this._product = this._productService.getProduct(idx,category);
+    this._title = category;
     
     console.log(this._product.name);
+	console.log(this._product.imgUrl);
   }
 }
