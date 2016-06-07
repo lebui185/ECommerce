@@ -1,0 +1,20 @@
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav" id="sidebar">     
+			<li>
+				<a href="#" *ngFor="let category of _categories"
+					   [routerLink]="['/', category]"><h4>{{ category }}</h4></a>
+			</li>
+        </ul>
+      </div>
+
+
+<!--
+<div class="sidebar">
+    <ul class="nav nav-sidebar" >
+        <li>
+			<a href="#" *ngFor="let category of _categories"
+				   [routerLink]="['/', category]">{{ category }}</a>
+		</li>
+    </ul>
+</div>
+-->
