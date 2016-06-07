@@ -1,0 +1,84 @@
+#ImageShow{
+	width:100px;
+	height:100px;
+}
+#BigPrice{
+	color: red;
+	font-size:40px;
+}
+
+@-webkit-keyframes rightToLeft {
+    0% {
+        -webkit-transform: translateX(800px);
+		opacity: 0;
+    }
+	
+    100% {
+        -webkit-transform: translateX(0);
+		opacity: 1;
+    }
+}
+
+.test-1{
+	-webkit-animation-name: rightToLeft;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-duration: 0.5s;
+}
+.test-2{
+	-webkit-animation-name: rightToLeft;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-duration: 1s;
+}
+.test-3{
+	-webkit-animation-name: rightToLeft;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-duration: 1.5s;
+}
+.test-4{
+	-webkit-animation-name: rightToLeft;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-delay: 0.8s;
+	-webkit-animation-fill-mode: forwards;
+	opacity:0;
+}
+.test-5{
+	-webkit-animation-name: rightToLeft;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-delay: 0.8s;
+	-webkit-animation-fill-mode: forwards;
+	opacity:0;
+}
+.test-6{
+	-webkit-animation-name: rightToLeft;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-duration: 1.5s;
+	-webkit-animation-delay: 0.8s;
+	-webkit-animation-fill-mode: forwards;
+	opacity:0;
+}
+.test-7{
+	-webkit-animation-name: rightToLeft;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-delay: 1.6s;
+	-webkit-animation-fill-mode: forwards;
+	opacity:0;
+}
+.test-8{
+	-webkit-animation-name: rightToLeft;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-delay: 1.6s;
+	-webkit-animation-fill-mode: forwards;
+	opacity:0;
+}
+.test-9{
+	-webkit-animation-name: rightToLeft;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-duration: 1.5s;
+	-webkit-animation-delay: 1.6s;
+	-webkit-animation-fill-mode: forwards;
+	opacity:0;
+}
