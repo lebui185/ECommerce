@@ -13,7 +13,9 @@ export class ProductListComponent implements OnActivate {
   _title: string = "Product List";
   _products: Product[];
 
+
   constructor(private _productService: ProductService) {
+
   }
   
   routerOnActivate(routeSegment: RouteSegment): void {
