@@ -2,16 +2,50 @@
   <div class="modal-content">
 	<div class="modal-header">
 	  <button type="button" class="close" data-dismiss="modal">&times;</button>
-	  <h4 class="modal-title">Sign up</h4>
+	  <h2 class="modal-title">Sign up</h2>
 	</div>
 	<div class="modal-body">
 		<div class="row">
-			<span class="col-md-4">Username:</span>
-			<input [(ngModel)]="_username" class="col-md-7" placeholder="Username">
+			<span id="Label">Username:</span>
+			<span id="Error" [style.display]="_username.length <= 0?'inherit':'none'" > Required!!</span>
 		</div>
 		<div class="row">
-			<span class="col-md-4">Password:</span>
-			<input [(ngModel)]="_password" type="password" class="col-md-7" placeholder="Password">
+			<input [(ngModel)]="_username" class="col-sm-offset-1 col-sm-10" placeholder="Username">
+		</div>
+		<br>
+		<div class="row">
+			<span id="Label">Password:</span>
+			<span id="Error" [style.display]="_password.length <= 0?'inherit':'none'" > Required!!</span>
+			<span id="Error"[style.display]="(_password.length < _MIN_PASS && _password.length > 0)?'inherit':'none'" > At least 8 character!!</span>
+		</div>
+		<div class="row">
+			<input [(ngModel)]="_password" type="password" class="col-sm-offset-1 col-sm-10" placeholder="Password">
+		</div>
+		<br>
+		<div class="row">
+			<span id="Label" >Phone:</span>
+			<span id="Error" [style.display]="_phone.length <= 0?'inherit':'none'" > Required!!</span>
+			<span id="Error" [style.display]="(_phone.match(_VALIDATE_PHONE) === null && _phone.length > 0)?'inherit':'none'" > Contain character!!</span>
+		</div>
+		<div class="row">
+			<input [(ngModel)]="_phone" class="col-sm-offset-1 col-sm-10" placeholder="Phone Number">
+		</div>
+		<br>
+		<div class="row">
+			<span id="Label" >Email:</span>
+			<span id="Error" [style.display]="_email.length <= 0?'inherit':'none'" > Required!!</span>
+			<span id="Error" [style.display]="(_email.match(_VALIDATE_EMAIL) === null && _email.length > 0)?'inherit':'none'" > Email invalid!!</span>
+		</div>
+		<div class="row">
+			<input [(ngModel)]="_email"  class="col-sm-offset-1 col-sm-10" placeholder="Email">
+		</div>
+		<br>
+		<div class="row">
+			<span id="Label">Identify Card:</span>
+			<span id="Error"[style.display]="_identifyCard.length <= 0?'inherit':'none'" > Required!!</span>
+		</div>
+		<div class="row">
+			<input [(ngModel)]="_identifyCard" class="col-sm-offset-1 col-sm-10" placeholder="Identify Card">
 		</div>
 	</div>
 	<div class="modal-footer">

@@ -22,9 +22,10 @@
 						
 					</div>
 					<div class = "row">
-					
-						<button [style.display]="_userType > 0?'none':(_userType <0?'none':'inherit')" 
-						class="btn btn-success btn-lg col-md-4 col-md-push-8"
+						<h2 class="col-md-3">Amount:</h2>
+						<input id="Amount" type="number" [(ngModel)] = "_amount" class="col-md-2">
+						<button id="Addtocart" [style.display]="_userType > 0?'none':(_userType <0?'none':'inherit')" 
+						class="btn btn-success btn-lg col-md-4 col-md-push-3"
 						(click)="OnClickAddProductToCart()"> Add to Cart</button>
 						
 					</div>

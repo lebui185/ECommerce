@@ -2,16 +2,24 @@
   <div class="modal-content">
 	<div class="modal-header">
 	  <button type="button" class="close" data-dismiss="modal">&times;</button>
-	  <h4 class="modal-title">Sign in</h4>
+	  <h2 class="modal-title">Sign in</h2>
 	</div>
 	<div class="modal-body">
 		<div class="row">
-		<span class="col-md-4">Username:</span>
-		<input [(ngModel)]="_username" class="col-md-7" placeholder="Username">
+			<span id="Label">Username:</span>
+			<span id="Error" [style.display]="_username.length <= 0?'inherit':'none'" > Required!!</span>
 		</div>
 		<div class="row">
-		<span class="col-md-4">Password:</span>
-		<input [(ngModel)]="_password" type="password" class="col-md-7" placeholder="Password">
+			<input [(ngModel)]="_username" class="col-sm-offset-1 col-sm-10" placeholder="Username">
+		</div>
+		<br>
+		<div class="row">
+			<span id="Label">Password:</span>
+			<span id="Error" [style.display]="_password.length <= 0?'inherit':'none'" > Required!!</span>
+			<span id="Error"[style.display]="(_password.length < _MIN_PASS && _password.length > 0)?'inherit':'none'" > At least 8 character!!</span>
+		</div>
+		<div class="row">
+			<input [(ngModel)]="_password" type="password" class="col-sm-offset-1 col-sm-10" placeholder="Password">
 		</div>
 	</div>
 	<div class="modal-footer">

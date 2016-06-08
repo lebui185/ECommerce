@@ -3,7 +3,6 @@ import { OnActivate, RouteSegment } from '@angular/router';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Product } from '../product/product';
 import { ProductService } from '../product/product.service';
-import { CartService } from '../cart/cart.service';
 import { UserService } from '../user/user.service';
 
 @Component({
@@ -17,11 +16,8 @@ export class ProductListComponent implements OnActivate {
   _title: string = "Product List";
   _products: Product[];
   _userType:number =  -1;
-  
-	ANYID:number=123456;
 
   constructor(private _productService: ProductService,
-				private _cartService: CartService,
 				private _userService: UserService) {
 
   }
@@ -32,7 +28,7 @@ export class ProductListComponent implements OnActivate {
     this._title = category;
 	
     this._products = this._productService.getProducts(category);
-	this._userType = this._userService.getUserType(this.ANYID);
+	this._userType = this._userService.getUserType();
     console.log("userType: " + this._userType);
     console.log(this._products[0].name);
   }
@@ -42,11 +38,11 @@ export class ProductListComponent implements OnActivate {
 		console.log("Add product was pressed");
 		console.log(product)
 		
-		this._cartService.addToCart(product);
+		this._userService.addToCart(product,1);
 		
 		//TestDev
 		
-		let Test = this._cartService.getCart(this.ANYID);
+		let Test = this._userService.getCart();
 		console.log("Product in Cart");
 		console.log("Length is " + Test.products.length);
 		for(let i = 0; i<Test.products.length; i++){

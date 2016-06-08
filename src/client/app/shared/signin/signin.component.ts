@@ -10,6 +10,7 @@ import { UserService } from '../user/user.service';
 export class SigninComponent{ 
 	_username:string = "";
 	_password:string = "";
+	_MIN_PASS:number = 8;
 	
 	
 	@Input() callback: Function; 
@@ -23,12 +24,16 @@ export class SigninComponent{
   OnClickSignIn():void{
 	alert("Signin was pressed");
 	
-	//Do something here
-	//Call userservice to signin the username and password
-	this._userService.signIn(this._username,this._password);
+	if(this._username.length > 0
+		&& this._password.length >= this._MIN_PASS){
 	
-	//callback the navbar
-	this.callback();
+		//Do something here
+		//Call userservice to signin the username and password
+		this._userService.signIn(this._username,this._password);
+		
+		//callback the navbar
+		this.callback();
+	}
   }
   
   //End event listener

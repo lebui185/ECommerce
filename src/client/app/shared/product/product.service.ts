@@ -13,6 +13,7 @@ export class ProductService {
 				"price": 600,
 				"shortDetail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 				"detail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+				"amount":2,
 				"category": "mobile phone",
 			},
 			{
@@ -22,6 +23,7 @@ export class ProductService {
 				"price": 600,
 				"shortDetail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 				"detail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium",
+				"amount":2,
 				"category": "mobile phone",
 			},
 			{
@@ -31,6 +33,7 @@ export class ProductService {
 				"price": 600,
 				"shortDetail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 				"detail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium",
+				"amount":3,
 				"category": "mobile phone",
 			},
 								{
@@ -40,6 +43,7 @@ export class ProductService {
 				"price": 600,
 				"shortDetail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 				"detail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium",
+				"amount":2,
 				"category": "mobile phone",
 			},
 								{
@@ -49,6 +53,7 @@ export class ProductService {
 				"price": 600,
 				"shortDetail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 				"detail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium",
+				"amount":4,
 				"category": "mobile phone",
 			},
 								{
@@ -58,6 +63,7 @@ export class ProductService {
 				"price": 600,
 				"shortDetail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 				"detail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium",
+				"amount":5,
 				"category": "mobile phone",
 			},
 								{
@@ -67,6 +73,7 @@ export class ProductService {
 				"price": 600,
 				"shortDetail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 				"detail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium",
+				"amount":6,
 				"category": "mobile phone",
 			},
 								{
@@ -76,6 +83,7 @@ export class ProductService {
 				"price": 600,
 				"shortDetail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 				"detail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium",
+				"amount":10,
 				"category": "mobile phone",
 			},
 			{
@@ -85,6 +93,7 @@ export class ProductService {
 				"price": 600,
 				"shortDetail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 				"detail": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium",
+				"amount":12,
 				"category": "mobile phone",
 			}
 	];
