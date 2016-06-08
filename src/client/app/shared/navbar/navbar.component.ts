@@ -7,6 +7,7 @@ import { PaymentComponent } from '../payment/index'
 import { ProfileComponent } from '../profile/index'
 
 import { UserService } from '../user/user.service';
+import { User } from '../user/user';
 import { Cart } from '../cart/cart';
 import { Router } from '@angular/router'
 
