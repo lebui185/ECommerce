@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
-import { AuthenticationService } from '../authentication/authentication.service'
-=======
 import { Component, OnInit} from '@angular/core';
 
 import { SigninComponent } from '../signin/index'
@@ -13,7 +9,6 @@ import { ProfileComponent } from '../profile/index'
 import { UserService } from '../user/user.service';
 import { Cart } from '../cart/cart';
 import { Router } from '@angular/router'
->>>>>>> c2609f4ff703db5af77738c4039e01a57e53d371
 
 @Component({
   moduleId: module.id,
@@ -22,35 +17,7 @@ import { Router } from '@angular/router'
   styleUrls: ['navbar.component.css'],
   directives: [SigninComponent,SignupComponent,MyCartComponent,PaymentComponent,ProfileComponent]
 })
-<<<<<<< HEAD
-export class NavbarComponent {
 
-  constructor(private _auth: AuthenticationService) {
-    this._auth.setSignOutSuccessCallback(function() {
-      console.log("Sign out success");
-    });
-
-    this._auth.setSignOutFailedCallback(function() {
-      console.log("Sign out failed");
-    })
-  }
-
-  onSearch(): void {
-    alert("submit");
-  }
-
-  onSignIn(): void {
-    $("#signin-modal").modal();
-  }
-
-  onSignOut(): void {
-    this._auth.signOut();
-  }
-
-  onSignUp(): void {
-    this._auth.signUp("user3@ec.com", "123456789", "090", "123456789");
-  }
-=======
 export class NavbarComponent { 
 	_userType:number= -1;
 	_username:string;
@@ -92,5 +59,4 @@ export class NavbarComponent {
 	onSearch(): void {
 		alert("submit");
 	}
->>>>>>> c2609f4ff703db5af77738c4039e01a57e53d371
 }
