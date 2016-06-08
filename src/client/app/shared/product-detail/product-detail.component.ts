@@ -34,7 +34,6 @@ export class ProductDetailComponent implements OnActivate {
     
     console.log(this._product.name);
 	console.log(this._product.imgUrl);
-
   }
   
   

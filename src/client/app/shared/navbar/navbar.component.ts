@@ -17,7 +17,6 @@ import { Router } from '@angular/router'
   styleUrls: ['navbar.component.css'],
   directives: [SigninComponent,SignupComponent,MyCartComponent,PaymentComponent,ProfileComponent]
 })
-
 export class NavbarComponent { 
 	_userType:number= -1;
 	_username:string;

@@ -10,13 +10,11 @@ SignupComponent, PaymentComponent,ProfileComponent} from './shared/index';
 @Component({
   moduleId: module.id,
   selector: 'ec-app',
-
   viewProviders: [HTTP_PROVIDERS,UserService, ProductService],
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
   directives: [ROUTER_DIRECTIVES,MyCartComponent,ProductDetailComponent, NavbarComponent, 
   SidebarComponent, SigninComponent,SignupComponent,PaymentComponent,ProfileComponent],
-
   providers: [ROUTER_PROVIDERS]
 })
 @Routes([

@@ -21,7 +21,6 @@ export class UserService {
 				"products":[]
 		  }
 		};
-
 		return this._user;
 	}
 	

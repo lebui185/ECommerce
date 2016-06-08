@@ -28,7 +28,6 @@ export class ProductListComponent implements OnActivate {
     this._title = category;
 	
     this._products = this._productService.getProducts(category);
-
 	this._userType = this._userService.getUserType();
     console.log("userType: " + this._userType);
     console.log(this._products[0].name);
