@@ -27,17 +27,13 @@ export class ProductDetailComponent implements OnActivate {
   }
   
   routerOnActivate(routeSegment: RouteSegment): void {
-    let category = routeSegment.getParam('category');
-	let idx = routeSegment.getParam('idx');
-    console.log(category);
-	console.log(idx);
-	this._product = this._productService.getProduct(idx, category);
-    this._title = category;
-	
-	this._userType = this._userService.getUserType(this.ANYID);
-    
-    console.log(this._product.name);
-	console.log(this._product.imgUrl);
+		let category = routeSegment.getParam('category');
+		let idx = routeSegment.getParam('idx');
+
+		this._product = this._productService.getProduct(idx, category);
+		this._title = category;
+
+		this._userType = this._userService.getUserType(this.ANYID);
   }
   
   

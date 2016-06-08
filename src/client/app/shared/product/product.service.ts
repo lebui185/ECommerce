@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Product } from './product'
+import { Product } from './product';
+
+declare var firebase: any;
 
 @Injectable()
 export class ProductService {
@@ -90,6 +92,10 @@ export class ProductService {
 	];
 	
 	getCategories(): string[] {
+		firebase.database().ref('categories').on('value', function(snapshot: any) {
+			console.log(snapshot.val());
+		});
+
         return [
             "Mobile phone",
             "Laptop",
@@ -102,7 +108,7 @@ export class ProductService {
 		return this._products;
 	} 
 	
-	getProduct(idx: number, category:string): Product{
+	getProduct(idx: string): Product{
 		
 		return this._products[idx];
 	}

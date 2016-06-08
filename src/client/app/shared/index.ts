@@ -2,6 +2,7 @@
  * This barrel file provides the exports for the shared resources (services, components).
  */
 
+export * from './authentication/index'
 export * from './product/index'
 export * from './signin/index';;
 export * from './navbar/index';
