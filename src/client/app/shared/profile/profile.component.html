@@ -7,36 +7,37 @@
 	<div class="modal-body">
 		<div class="row">
 			<span id="Label">Name:</span>
-			<span id="Error" [style.display]="(_user.name.length <= 0)?'inherit':'none'" > Required!!</span>
 		</div>
 		<div class="row">
-			<input [(ngModel)]="_user.name" class="col-sm-offset-1 col-sm-10" placeholder="Your name" readonly>
+			<input [(ngModel)]="_user.name" class="col-sm-offset-1 col-sm-10 input-sm" placeholder="Your name" readonly>
+			<span class="col-sm-offset-8 col-sm-5" id="Error" [style.display]="_user.name.length <= 0?'inherit':'none'" > Required!!</span>
+			<span class="col-sm-offset-1 col-sm-5" [style.display]="(_user.name.length <= 0)?'none':'inherit'" >&nbsp;</span>
 		</div>
-		<br>
 		<div class="row">
 			<span id="Label">Phone:</span>
-			<span id="Error" [style.display]="(_user.phone.length <= 0)?'inherit':'none'" > Required!!</span>
-			<span id="Error" [style.display]="(_user.phone.length > 0 && _user.phone.match(_VALIDATE_PHONE) === null )?'inherit':'none'" > Contain character!!</span>
 		</div>
 		<div class="row">
-			<input [(ngModel)]="_user.phone" class="col-sm-offset-1 col-sm-10" placeholder="Your phone number" readonly>
+			<input [(ngModel)]="_user.phone" class="col-sm-offset-1 col-sm-10 input-sm" placeholder="Your phone number" readonly>
+			<span class="col-sm-offset-8 col-sm-5" id="Error" [style.display]="_user.phone.length <= 0?'inherit':'none'" > Required!!</span>
+			<span class="col-sm-offset-5 col-sm-7"  id="Error" [style.display]="(_user.phone.match(_VALIDATE_PHONE) === null && _user.phone.length > 0)?'inherit':'none'" > &nbsp;&nbsp;&nbsp;Contain character!!</span>
+			<span class="col-sm-offset-1 col-sm-5" [style.display]="((_user.phone.match(_VALIDATE_PHONE) === null && _user.phone.length > 0) ||(_user.phone.length <= 0))?'none':'inherit'" >&nbsp;</span>
 		</div>
-		<br>
 		<div class="row">
 			<span id="Label">Email:</span>
-			<span id="Error" [style.display]="(_user.email.length <= 0)?'inherit':'none'" > Required!!</span>
-			<span id="Error" [style.display]="(_user.email.length > 0 && _user.email.match(_VALIDATE_EMAIL) === null)?'inherit':'none'" > Email invalid!!</span>
 		</div>
 		<div class="row">
-			<input [(ngModel)]="_user.email" class="col-sm-offset-1 col-sm-10" placeholder="Your email" readonly> 
+			<input [(ngModel)]="_user.email" class="col-sm-offset-1 col-sm-10 input-sm" placeholder="Your email" readonly> 
+			<span class="col-sm-offset-8 col-sm-5" id="Error" [style.display]="_user.email.length <= 0?'inherit':'none'" > Required!!</span>
+			<span class="col-sm-offset-7 col-sm-5" id="Error" [style.display]="(_user.email.match(_VALIDATE_EMAIL) === null && _user.email.length > 0)?'inherit':'none'" > Email invalid!!</span>
+			<span class="col-sm-offset-1 col-sm-5" [style.display]="((_user.email.match(_VALIDATE_EMAIL) === null && _user.email.length > 0) ||(_user.email.length <= 0) )?'none':'inherit'" >&nbsp;</span>
 		</div>
-		<br>
 		<div class="row">
 			<span id="Label">Identify Card:</span>
-			<span id="Error"[style.display]="(_user.identifyCard.length <= 0)?'inherit':'none'" > Required!!</span>
 		</div>
 		<div class="row">
-			<input [(ngModel)]="_user.identifyCard" class="col-sm-offset-1 col-sm-10" placeholder="Your identify card" readonly>
+			<input [(ngModel)]="_user.identifyCard" class="col-sm-offset-1 col-sm-10 input-sm" placeholder="Your identify card" readonly>
+			<span class="col-sm-offset-8 col-sm-5" id="Error"[style.display]="_user.identifyCard.length <= 0?'inherit':'none'" > Required!!</span>
+			<span class="col-sm-offset-1 col-sm-5" [style.display]="(_user.identifyCard.length <= 0)?'none':'inherit'" >&nbsp;</span>
 		</div>
 	</div>
 	<div class="modal-footer">

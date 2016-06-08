@@ -1,14 +1,6 @@
-#BigImage{
-	height:400px;
-	width:400px;
-}
 #VeryBigPrice{
 	font-size:50px;
 	color:red;
-}
-#Amount{
-	margin-top:15px;
-	font-size:20px;
 }
 #Addtocart{
 	margin-top:5px;

@@ -7,18 +7,19 @@
 	<div class="modal-body">
 		<div class="row">
 			<span id="Label">Address:</span>
-			<span id="Error" [style.display]="_address.length <= 0?'inherit':'none'" > Required!!</span>
 		</div>
 		<div class="row">
-			<input [(ngModel)]="_address" class="col-sm-offset-1 col-sm-10" placeholder="Address">
+			<input [(ngModel)]="_address" class="col-sm-offset-1 col-sm-10 input-sm" placeholder="Address">
+			<span class="col-sm-offset-8 col-sm-5" id="Error"[style.display]="_address.length <= 0?'inherit':'none'" > Required!!</span>
+			<span class="col-sm-offset-1 col-sm-5" [style.display]="(_address.length <= 0)?'none':'inherit'" >&nbsp;</span>
 		</div>
-		<br>
 		<div class="row">
 			<span id="Label">Payment Card:</span>
-			<span id="Error" [style.display]="_paymentCard.length <= 0?'inherit':'none'" > Required!!</span>
 		</div>
 		<div class="row">
-			<input [(ngModel)]="_paymentCard" class="col-sm-offset-1 col-sm-10" placeholder="Payment Card">
+			<input [(ngModel)]="_paymentCard" class="col-sm-offset-1 col-sm-10 input-sm" placeholder="Payment Card">
+			<span class="col-sm-offset-8 col-sm-5" id="Error"[style.display]="_paymentCard.length <= 0?'inherit':'none'" > Required!!</span>
+			<span class="col-sm-offset-1 col-sm-5" [style.display]="(_paymentCard.length <= 0)?'none':'inherit'" >&nbsp;</span>
 		</div>
 	</div>
 	<div class="modal-footer">

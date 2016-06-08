@@ -6,20 +6,22 @@
 	</div>
 	<div class="modal-body">
 		<div class="row">
-			<span id="Label">Username:</span>
-			<span id="Error" [style.display]="_username.length <= 0?'inherit':'none'" > Required!!</span>
+			<span id="Label" >Email:</span>
 		</div>
 		<div class="row">
-			<input [(ngModel)]="_username" class="col-sm-offset-1 col-sm-10" placeholder="Username">
+			<input [(ngModel)]="_email"  class="col-sm-offset-1 col-sm-10 input-sm" placeholder="Email">
+			<span class="col-sm-offset-8 col-sm-5" id="Error" [style.display]="_email.length <= 0?'inherit':'none'" > Required!!</span>
+			<span class="col-sm-offset-7 col-sm-5" id="Error" [style.display]="(_email.match(_VALIDATE_EMAIL) === null && _email.length > 0)?'inherit':'none'" > Email invalid!!</span>
+			<span class="col-sm-offset-1 col-sm-5" [style.display]="((_email.match(_VALIDATE_EMAIL) === null && _email.length > 0) ||(_email.length <= 0) )?'none':'inherit'" >&nbsp;</span>
 		</div>
-		<br>
 		<div class="row">
 			<span id="Label">Password:</span>
-			<span id="Error" [style.display]="_password.length <= 0?'inherit':'none'" > Required!!</span>
-			<span id="Error"[style.display]="(_password.length < _MIN_PASS && _password.length > 0)?'inherit':'none'" > At least 8 character!!</span>
 		</div>
 		<div class="row">
-			<input [(ngModel)]="_password" type="password" class="col-sm-offset-1 col-sm-10" placeholder="Password">
+			<input [(ngModel)]="_password" type="password" class="col-sm-offset-1 col-sm-10 input-sm" placeholder="Password">
+			<span class="col-sm-offset-8 col-sm-5" id="Error" [style.display]="_password.length <= 0?'inherit':'none'" > Required!!</span>
+			<span class="col-sm-offset-5 col-sm-7" id="Error"[style.display]="(_password.length < _MIN_PASS && _password.length > 0)?'inherit':'none'" > At least 8 character!!</span>
+			<span class="col-sm-offset-1 col-sm-5" [style.display]="((_password.length < _MIN_PASS && _password.length > 0) ||(_password.length <= 0) )?'none':'inherit'" >&nbsp;</span>
 		</div>
 	</div>
 	<div class="modal-footer">

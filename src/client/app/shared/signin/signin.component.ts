@@ -8,9 +8,11 @@ import { UserService } from '../user/user.service';
   styleUrls: ['signin.component.css']
 })
 export class SigninComponent{ 
-	_username:string = "";
+	_email:string = "";
 	_password:string = "";
+	
 	_MIN_PASS:number = 8;
+	_VALIDATE_EMAIL=/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 	
 	
 	@Input() callback: Function; 
@@ -24,12 +26,12 @@ export class SigninComponent{
   OnClickSignIn():void{
 	alert("Signin was pressed");
 	
-	if(this._username.length > 0
+	if(this._email.length > 0 && this._email.match(this._VALIDATE_EMAIL) != null
 		&& this._password.length >= this._MIN_PASS){
 	
 		//Do something here
 		//Call userservice to signin the username and password
-		this._userService.signIn(this._username,this._password);
+		this._userService.signIn(this._email,this._password);
 		
 		//callback the navbar
 		this.callback();

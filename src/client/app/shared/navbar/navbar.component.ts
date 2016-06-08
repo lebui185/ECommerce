@@ -7,6 +7,7 @@ import { PaymentComponent } from '../payment/index'
 import { ProfileComponent } from '../profile/index'
 
 import { UserService } from '../user/user.service';
+import { User } from '../user/user';
 import { Cart } from '../cart/cart';
 import { Router } from '@angular/router'
 
@@ -23,6 +24,7 @@ export class NavbarComponent {
 	updatecart:Cart;
 	updateUser:User;
 	theBoundCallback: Function;
+	totalPrice:number = 0;
 	
 	constructor(private _userService: UserService,
 				private _parentRouter: Router) {
@@ -48,7 +50,11 @@ export class NavbarComponent {
 	}
 	
 	OnClickUpdateCart(){
+		this.totalPrice = 0;
 		this.updatecart = this._userService.getCart();
+		for(let i =0;i<this.updatecart.products.length;i++){
+			this.totalPrice += this.updatecart.products[i].price * this.updatecart.products[i].amount;
+		}
 	}
 	
 	OnClickUpdateUser(){

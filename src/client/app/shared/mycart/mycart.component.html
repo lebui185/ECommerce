@@ -12,12 +12,14 @@
 				<h3>{{product.name}}</h3>
 				<p>{{product.detail}}</p>
 				<h3>Price: <span id="MediumPrice">{{product.price}}$</span></h3>
+				<h3>Amount: <input class="input-lg" type="number" min="1" [(ngModel)]="product.amount" (ngModelChange)="onChangeAnmout()"> </h3>
 				<button class="btn btn-danger" (click)="OnClickRemove(idx)">Remove</button>
 			</div>
 			<hr>
 		</div>
 	</div>
 	<div class="modal-footer">
+		<h3>Total price: <span id="MediumPrice">{{_totalPrice}}$</span></h3>
 		<button type="button" class="btn btn-primary" data-dismiss="modal"
 		[style.display]="(_cart.products != undefined && _cart.products.length > 0)?'inline-block':'none'"
 		data-toggle="modal" data-target="#paymentModel">Buy</button>

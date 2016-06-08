@@ -5,7 +5,7 @@
 	<div class = "panel panel-default">
 		<div class="panel-body">
 			<div class="row">
-				<img id="BigImage" class= "col-md-5" [src]="_product.imgUrl">
+				<img class= "col-md-5 img-responsive" [src]="_product.imgUrl">
 				<div class = "col-md-7">
 					<h1>{{_product.name}}</h1>
 					<p>{{_product.detail}}<p>
@@ -22,10 +22,11 @@
 						
 					</div>
 					<div class = "row">
-						<h2 class="col-md-3">Amount:</h2>
-						<input id="Amount" type="number" [(ngModel)] = "_amount" class="col-md-2">
+						<h2 class="col-md-3" [style.display]="_userType > 0?'none':(_userType <0?'none':'inherit')">Amount:</h2>
+						<input [style.display]="_userType > 0?'none':(_userType <0?'none':'inherit')"
+						type="number" min="1" [(ngModel)] = "_amount" class="col-md-2 input-lg">
 						<button id="Addtocart" [style.display]="_userType > 0?'none':(_userType <0?'none':'inherit')" 
-						class="btn btn-success btn-lg col-md-4 col-md-push-3"
+						class="btn btn-success btn-lg col-md-4 col-md-push-2"
 						(click)="OnClickAddProductToCart()"> Add to Cart</button>
 						
 					</div>

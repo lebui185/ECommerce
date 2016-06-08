@@ -13,6 +13,10 @@ export class MyCartComponent{
 	
 	@Input()
 	_cart: Cart;
+	
+	@Input()
+	_totalPrice: number;
+	
 	constructor(private _userService: UserService) {
 	}
   
@@ -21,6 +25,12 @@ export class MyCartComponent{
 		alert("Remove was pressed");
 		
 		this._userService.removeOneProductFromCart(index);
+	}
+	onChangeAnmout():void{
+		this._totalPrice = 0;
+		for(let i =0;i<this._cart.products.length;i++){
+			this._totalPrice += this._cart.products[i].price * this._cart.products[i].amount;
+		}
 	}
   
   //End event listener

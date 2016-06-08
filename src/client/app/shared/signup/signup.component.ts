@@ -8,7 +8,6 @@ import { UserService } from '../user/user.service';
   styleUrls: ['signup.component.css']
 })
 export class SignupComponent{ 
-	_username:string = "";
 	_password:string = "";
 	_email:string="";
 	_identifyCard:string="";
@@ -26,8 +25,7 @@ export class SignupComponent{
   //this region use for implement the event listener.
   OnClickSignUp():void{
 	alert("SignUp was pressed");
-	if(this._username.length >0
-		&& this._password.length>=this._MIN_PASS
+	if(this._password.length>=this._MIN_PASS
 		&& this._email.length> 0 && this._email.match(this._VALIDATE_EMAIL) != null
 		&& this._identifyCard.length> 0
 		&& this._phone.length >0 && this._phone.match(this._VALIDATE_PHONE) != null){
@@ -35,8 +33,8 @@ export class SignupComponent{
 			//Do something here
 			//Call userservice to signup the username and password
 			
-			this._userService.signUp(this._username,this._password,
-						this._email,this._identifyCard,this._phone);
+			this._userService.signUp(this._email,this._password,
+						this._identifyCard,this._phone);
 	}
   }
   

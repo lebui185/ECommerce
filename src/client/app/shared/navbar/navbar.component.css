@@ -1,0 +1,26 @@
+#SmallIcon{
+	height:20px;
+	width:20px;
+}
+
+.navbar-inner {
+  background-color: #4CAF50; /* fallback color, place your own */
+
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#43A047), to(#388E3C));
+  background-image: -webkit-linear-gradient(top, #43A047, #388E3C);
+  background-repeat: repeat-x;
+}
+
+.FontColor{
+	color:white;
+}
+
+.icon-bar{
+	background:white;
+}
+
+.navbar-inner .navbar-nav > li > a:hover,
+.navbar-inner .navbar-nav > li > a:focus {
+    background-color: #388E3C;
+    color: #white;
+}

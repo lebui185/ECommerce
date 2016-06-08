@@ -66,7 +66,7 @@ export class UserService {
 		this._user = undefined;
 	}
 	
-	signUp(username:string ,password:string,email:string,identifyCard:string,phone:string){
+	signUp(email:string ,password:string,identifyCard:string,phone:string){
 		//sign up this user on database
 		
 	}
