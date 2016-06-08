@@ -1,0 +1,49 @@
+<div class="modal-dialog modal-sm">
+  <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" data-dismiss="modal">&times;</button>
+	  <h2 class="modal-title">Personal Profile</h2>
+	</div>
+	<div class="modal-body">
+		<div class="row">
+			<span id="Label">Name:</span>
+			<span id="Error" [style.display]="(_user.name.length <= 0)?'inherit':'none'" > Required!!</span>
+		</div>
+		<div class="row">
+			<input [(ngModel)]="_user.name" class="col-sm-offset-1 col-sm-10" placeholder="Your name" readonly>
+		</div>
+		<br>
+		<div class="row">
+			<span id="Label">Phone:</span>
+			<span id="Error" [style.display]="(_user.phone.length <= 0)?'inherit':'none'" > Required!!</span>
+			<span id="Error" [style.display]="(_user.phone.length > 0 && _user.phone.match(_VALIDATE_PHONE) === null )?'inherit':'none'" > Contain character!!</span>
+		</div>
+		<div class="row">
+			<input [(ngModel)]="_user.phone" class="col-sm-offset-1 col-sm-10" placeholder="Your phone number" readonly>
+		</div>
+		<br>
+		<div class="row">
+			<span id="Label">Email:</span>
+			<span id="Error" [style.display]="(_user.email.length <= 0)?'inherit':'none'" > Required!!</span>
+			<span id="Error" [style.display]="(_user.email.length > 0 && _user.email.match(_VALIDATE_EMAIL) === null)?'inherit':'none'" > Email invalid!!</span>
+		</div>
+		<div class="row">
+			<input [(ngModel)]="_user.email" class="col-sm-offset-1 col-sm-10" placeholder="Your email" readonly> 
+		</div>
+		<br>
+		<div class="row">
+			<span id="Label">Identify Card:</span>
+			<span id="Error"[style.display]="(_user.identifyCard.length <= 0)?'inherit':'none'" > Required!!</span>
+		</div>
+		<div class="row">
+			<input [(ngModel)]="_user.identifyCard" class="col-sm-offset-1 col-sm-10" placeholder="Your identify card" readonly>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	</div>
+  </div>
+</div>
+
+
+

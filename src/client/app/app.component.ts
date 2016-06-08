@@ -2,23 +2,21 @@ import { Component } from '@angular/core';
 import {ROUTER_PROVIDERS, ROUTER_DIRECTIVES, Routes } from '@angular/router';
 import { HTTP_PROVIDERS} from '@angular/http';
 
-import { AuthenticationService,
-        UserService,CartService,
-        ProductService,
-        ProductDetailComponent,
-        NavbarComponent,
-        SidebarComponent,
-        ProductListComponent,
-        SignInComponent} from './shared/index';
+import { UserService,ProductService, 
+MyCartComponent,ProductDetailComponent, NavbarComponent, 
+SidebarComponent, ProductListComponent ,SigninComponent,
+SignupComponent, PaymentComponent,ProfileComponent} from './shared/index';
 
 @Component({
   moduleId: module.id,
   selector: 'ec-app',
-  viewProviders: [HTTP_PROVIDERS, CartService,UserService, ProductService, AuthenticationService],
+
+  viewProviders: [HTTP_PROVIDERS,UserService, ProductService],
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
+  directives: [ROUTER_DIRECTIVES,MyCartComponent,ProductDetailComponent, NavbarComponent, 
+  SidebarComponent, SigninComponent,SignupComponent,PaymentComponent,ProfileComponent],
 
-  directives: [ROUTER_DIRECTIVES,ProductDetailComponent, NavbarComponent, SidebarComponent, SignInComponent],
   providers: [ROUTER_PROVIDERS]
 })
 @Routes([

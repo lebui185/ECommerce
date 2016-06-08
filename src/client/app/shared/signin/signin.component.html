@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   <!-- Modal -->
   <div class="modal fade" id="signin-modal" role="dialog">
     <div class="modal-dialog">
@@ -21,3 +22,39 @@
       
     </div>
   </div>
+=======
+<div class="modal-dialog modal-sm">
+  <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" data-dismiss="modal">&times;</button>
+	  <h2 class="modal-title">Sign in</h2>
+	</div>
+	<div class="modal-body">
+		<div class="row">
+			<span id="Label">Username:</span>
+			<span id="Error" [style.display]="_username.length <= 0?'inherit':'none'" > Required!!</span>
+		</div>
+		<div class="row">
+			<input [(ngModel)]="_username" class="col-sm-offset-1 col-sm-10" placeholder="Username">
+		</div>
+		<br>
+		<div class="row">
+			<span id="Label">Password:</span>
+			<span id="Error" [style.display]="_password.length <= 0?'inherit':'none'" > Required!!</span>
+			<span id="Error"[style.display]="(_password.length < _MIN_PASS && _password.length > 0)?'inherit':'none'" > At least 8 character!!</span>
+		</div>
+		<div class="row">
+			<input [(ngModel)]="_password" type="password" class="col-sm-offset-1 col-sm-10" placeholder="Password">
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" data-dismiss="modal"
+		(click)="OnClickSignIn()">OK</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	</div>
+  </div>
+</div>
+
+
+
+>>>>>>> c2609f4ff703db5af77738c4039e01a57e53d371

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { OnActivate, RouteSegment } from '@angular/router';
 import { Product } from '../product/product';
 import { ProductService } from '../product/product.service';
-import { CartService } from '../cart/cart.service';
 import { UserService } from '../user/user.service';
 
 @Component({
@@ -13,27 +12,29 @@ import { UserService } from '../user/user.service';
 })
 export class ProductDetailComponent implements OnActivate { 
   
-  ANYID:number = 15243698; // HardCode
-  
-  _title: string = "Product";
+	_title: string = "Product";
 	_product : Product;
-	
-	_userType:number =  1;
+	_amount:number = 1;
+	_userType:number =  -1;
 
   constructor(private _productService: ProductService,
-				private _cartService: CartService,
 				private _userService: UserService) {
 
   }
   
   routerOnActivate(routeSegment: RouteSegment): void {
-		let category = routeSegment.getParam('category');
-		let idx = routeSegment.getParam('idx');
+    let category = routeSegment.getParam('category');
+	let idx = routeSegment.getParam('idx');
+    console.log(category);
+	console.log(idx);
+	this._product = this._productService.getProduct(parseInt(idx, 10), category);
+    this._title = category;
+	
+	this._userType = this._userService.getUserType();
+    
+    console.log(this._product.name);
+	console.log(this._product.imgUrl);
 
-		this._product = this._productService.getProduct(idx, category);
-		this._title = category;
-
-		this._userType = this._userService.getUserType(this.ANYID);
   }
   
   
@@ -58,11 +59,11 @@ export class ProductDetailComponent implements OnActivate {
 		alert("Add product was pressed");
 		console.log("Add product was pressed");
 		
-		this._cartService.addToCart(this._product);
+		this._userService.addToCart(this._product,this._amount);
 		
 		//TestDev
 		
-		let Test = this._cartService.getCart(this.ANYID);
+		let Test = this._userService.getCart();
 		console.log("Product in Cart");
 		console.log("Length is " + Test.products.length);
 		for(let i = 0; i<Test.products.length; i++){

@@ -5,5 +5,6 @@ export class Product {
   price: number;
   shortDetail: string;
   detail: string;
+  amount:number;
   category: string;
 }

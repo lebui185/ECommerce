@@ -6,3 +6,29 @@
 	font-size:50px;
 	color:red;
 }
+#Amount{
+	margin-top:15px;
+	font-size:20px;
+}
+#Addtocart{
+	margin-top:5px;
+}
+
+
+@-webkit-keyframes rightToLeftDetail{
+    0% {
+		-webkit-transform: translateX(800px);
+		opacity: 0;
+    }
+	
+    100% {
+		-webkit-transform: translateX(0);
+		opacity: 1;
+    }
+}
+
+.animatedDetail{
+	-webkit-animation-name: rightToLeftDetail;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-duration: 1s;
+}

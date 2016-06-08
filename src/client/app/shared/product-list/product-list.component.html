@@ -1,16 +1,21 @@
 <h1>{{ _title }}</h1>
 <hr>
 
-<div class="col-md-4 test-{{idx+1}}" *ngFor="let product of _products; let idx = index">
+<div class="col-md-4 animtedComponentShortDetail-{{ (idx%9) + 1 }}" *ngFor="let product of _products; let idx = index">
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="row">
 				<img id="ImageShow" class="col-md-5" [src]="product.imgUrl">
 				<div class="col-md-7">
 					<h2>{{product.name}}</h2>
-					<span>{{product.shortDetail}}...</span>
-					<h4>Price: <span id="BigPrice">{{product.price}}$</span></h4>
+					<p>{{product.shortDetail}}...</p>
 					<a href="#" [routerLink]="['/', _title,'/',idx]">More info...</a>
+					<h4>Price: <span id="BigPrice">{{product.price}}$</span></h4>
+					<div class="row">
+						<button [style.display]="_userType > 0?'none':(_userType <0?'none':'inherit')" 
+						class="btn btn-success col-md-12"
+						(click)="OnClickAddProductToCart(product)"> Add to Cart</button>
+					</div>
 				</div>
 			</div>
 		</div>
