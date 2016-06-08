@@ -108,7 +108,7 @@ export class ProductService {
 		return this._products;
 	} 
 	
-	getProduct(idx: string): Product{
+	getProduct(idx: number, category:string): Product{
 		
 		return this._products[idx];
 	}
