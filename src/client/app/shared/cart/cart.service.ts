@@ -1,42 +1,86 @@
 import { Injectable } from '@angular/core';
 import { Cart } from './cart';
 import { Product } from '../product/product';
+import { AuthenticationService } from '../authentication/authentication.service';
+import { ProductService } from '../product/product.service';
+
+declare var firebase: any;
 
 @Injectable()
 export class CartService {
 
-	_cart:Cart;
-    
-    getCart(id: number): Cart {
-		if(this._cart === undefined){
-			//getcart from database with id user
-			var infoCart = {
-				  "id": 1,
-				  "name": "Current Cart",
-				  "products": []
-				};
-			this._cart = infoCart;
-		}
-		return this._cart;
+	_items: any[] = [];
+
+	constructor(private _productService: ProductService,
+		private _authenticationService: AuthenticationService) {
+	}
+
+	init() {
+		this._items = [];
+		let uid = this._authenticationService.getUserId();
+		firebase.database().ref("users/" + uid + "/cart").once('value', (snapshot: any) => {
+			var cartItems = snapshot.val();
+			if (cartItems != null) {
+				let productIds = Object.keys(cartItems);
+				productIds.forEach(id => {
+					this._productService.getProduct(id).then((snapshot: any) => {
+						let product = snapshot.val();
+						product["id"] = id;
+						product["quantity"] = cartItems[id]["quantity"];
+						this._items.push(product);
+					})
+				});
+			} 		
+		});
+	}
+
+    getItems(): any {
+		return this._items;
+	}
+
+	removeItem(id: string): void {
+		let uid = this._authenticationService.getUserId();
+		firebase.database().ref("users/" + uid + "/cart/" + id).remove();
+
+		this._items.forEach((item, index) => {
+			if (item.id == id) {
+				this._items.splice(index, 1);
+				console.log(this._items);
+			}
+		});
 	}
 	
-	addToCart(product: Product): void{
-		//console.log(product);
-		this._cart.products.push(product);
-		//console.log(this._cart.products[0]);
+	add(productId: string, quant: number): void{
+		let uid = this._authenticationService.getUserId();
+		firebase.database().ref("users/" + uid)
+						.child("cart")
+						.child(productId).set({
+							quantity: quant
+						});
+		this._productService.getProduct(productId).then((snapshot: any) => {
+						let product = snapshot.val();
+						product["id"] = productId;
+						product["quantity"] = quant;
+						this._items.push(product);
+					})
+	}
+
+	setQuantity(productId: string, quant: number): void{
+		let uid = this._authenticationService.getUserId();
+		firebase.database().ref("users/" + uid)
+						.child("cart")
+						.child(productId).set({
+							quantity: quant
+						});
 	}
 	
-	removeOneProductFromCart(index:number):void{
-		if(this._cart.products.length > 0 && index >=0)
-			this._cart.products.splice(index, 1);
-	}
 	
 	cleanCart():void{
-		this._cart.products = [];
+		this._items.products = [];
 	}
 	
 	buyAllProductsInCart(){
-		if(this._cart.products.length > 0){
+		if(this._items.products.length > 0){
 			//save all products in cart to database;
 			
 			//Clean your cart;

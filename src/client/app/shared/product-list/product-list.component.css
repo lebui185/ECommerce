@@ -1,10 +1,15 @@
-#ImageShow{
-	width:100px;
-	height:100px;
+#ContainerPanel{
+	min-height:200px;
 }
 #BigPrice{
 	color: red;
-	font-size:40px;
+	font-size:30px;
+}
+#DetailProductContainer{
+	min-height:110px;
+}
+.testing{
+	max-height:170px;
 }
 
 @-webkit-keyframes rightToLeft {

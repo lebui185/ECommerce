@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { UserService } from '../user/user.service';
+import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../authentication/authentication.service';
+import { CartService } from '../cart/cart.service';
 
 @Component({
   moduleId: module.id,
@@ -7,36 +8,44 @@ import { UserService } from '../user/user.service';
   templateUrl: 'signin.component.html',
   styleUrls: ['signin.component.css']
 })
-export class SigninComponent{ 
-	_email:string = "";
-	_password:string = "";
-	
-	_MIN_PASS:number = 8;
-	_VALIDATE_EMAIL=/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-	
-	
-	@Input() callback: Function; 
-	
-	constructor(private _userService: UserService) {
+export class SigninComponent implements OnInit { 
 
-	}
-  
-  
-  //this region use for implement the event listener.
-  OnClickSignIn():void{
-	alert("Signin was pressed");
-	
-	if(this._email.length > 0 && this._email.match(this._VALIDATE_EMAIL) != null
-		&& this._password.length >= this._MIN_PASS){
-	
-		//Do something here
-		//Call userservice to signin the username and password
-		this._userService.signIn(this._email,this._password);
+	_email: string;
+	_password: string;
+	_showError: number;
+
+	constructor(private _cartService: CartService,
+		private _authenticationService: AuthenticationService) {
 		
-		//callback the navbar
-		this.callback();
 	}
-  }
-  
-  //End event listener
+
+	ngOnInit(): void {
+		this._showError = 0;
+
+		this._authenticationService.setSignInSuccessCallback(
+			() => {
+				$('#signin-modal').modal('hide');
+				this._cartService.init();
+			}
+		)
+
+		this._authenticationService.setSignInFailedCallback(
+			(error: any) => {
+				this._showError = 1;
+			}
+		)
+	}
+
+	onSubmit(): void {
+		this._authenticationService.signInWithEmailAndPassword(this._email, this._password);
+	}
+
+	onGoogleSignInClick(): void {
+		this._authenticationService.signInWith("google");
+	}
+
+	onFacebookSignInClick(): void {
+		this._authenticationService.signInWith("facebook");
+	}
 }
+

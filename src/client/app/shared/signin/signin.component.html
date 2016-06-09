@@ -1,36 +1,41 @@
-<div class="modal-dialog modal-sm">
-  <div class="modal-content">
-	<div class="modal-header">
-	  <button type="button" class="close" data-dismiss="modal">&times;</button>
-	  <h2 class="modal-title">Sign in</h2>
-	</div>
-	<div class="modal-body">
-		<div class="row">
-			<span id="Label" >Email:</span>
-		</div>
-		<div class="row">
-			<input [(ngModel)]="_email"  class="col-sm-offset-1 col-sm-10 input-sm" placeholder="Email">
-			<span class="col-sm-offset-8 col-sm-5" id="Error" [style.display]="_email.length <= 0?'inherit':'none'" > Required!!</span>
-			<span class="col-sm-offset-7 col-sm-5" id="Error" [style.display]="(_email.match(_VALIDATE_EMAIL) === null && _email.length > 0)?'inherit':'none'" > Email invalid!!</span>
-			<span class="col-sm-offset-1 col-sm-5" [style.display]="((_email.match(_VALIDATE_EMAIL) === null && _email.length > 0) ||(_email.length <= 0) )?'none':'inherit'" >&nbsp;</span>
-		</div>
-		<div class="row">
-			<span id="Label">Password:</span>
-		</div>
-		<div class="row">
-			<input [(ngModel)]="_password" type="password" class="col-sm-offset-1 col-sm-10 input-sm" placeholder="Password">
-			<span class="col-sm-offset-8 col-sm-5" id="Error" [style.display]="_password.length <= 0?'inherit':'none'" > Required!!</span>
-			<span class="col-sm-offset-5 col-sm-7" id="Error"[style.display]="(_password.length < _MIN_PASS && _password.length > 0)?'inherit':'none'" > At least 8 character!!</span>
-			<span class="col-sm-offset-1 col-sm-5" [style.display]="((_password.length < _MIN_PASS && _password.length > 0) ||(_password.length <= 0) )?'none':'inherit'" >&nbsp;</span>
-		</div>
-	</div>
-	<div class="modal-footer">
-		<button type="button" class="btn btn-primary" data-dismiss="modal"
-		(click)="OnClickSignIn()">OK</button>
-		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	</div>
+<div id="signin-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+		<form role="form" (ngSubmit)="onSubmit()">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title text-center">Sign in</h4>
+				</div>
+				<div class="modal-body">
+									
+						<div class="form-group">
+							<label for="email">Email:</label>
+							<input [(ngModel)]="_email" ngControl="email" type="email" class="form-control" id="email" required>
+						</div>
+
+						<div class="form-group">
+							<label for="pwd">Password:</label>
+							<input [(ngModel)]="_password" ngControl="_password" type="password" class="form-control" id="pwd" required minLength="6">
+						</div>
+
+						<div *ngIf="_showError == 1" id="error-msg">
+							Invalid email or password
+						</div>
+
+						<button class="btn btn-block btn-social btn-google" (click)="onGoogleSignInClick()">
+							<span class="fa fa-google"></span>Sign in with Google
+						</button>
+
+						<button class="btn btn-block btn-social btn-facebook" (click)="onFacebookSignInClick()">
+							<span class="fa fa-facebook"></span>Sign in with Facebook
+						</button>
+						
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-default">Submit</button>
+				</div>
+			</div>
+		</form>
   </div>
 </div>
-
-
-

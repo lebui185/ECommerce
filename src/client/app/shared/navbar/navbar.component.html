@@ -1,5 +1,6 @@
 <nav class="navbar navbar-inner navbar-fixed-top">
   <div class="container-fluid">
+
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only icon-bar">Toggle navigation</span>
@@ -9,29 +10,23 @@
       </button>
       <a class="navbar-brand FontColor" href="#">E-commerce</a>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-		<li><a class="FontColor" href="#" data-toggle="modal" data-target="#profileModel"[style.display]="_userType >= 0?'inherit':'none'" 
-		(click)="OnClickUpdateUser()">Hello {{_username}}</a></li>
-		<li><a class="FontColor" href="#" data-toggle="modal" data-target="#cartModel"  [style.display]="_userType >= 0?'inherit':'none'"  
-		(click)="OnClickUpdateCart()"><img id="SmallIcon" src="../assets/cart.png"> My cart</a></li>
-		<li><a class="FontColor" href="#" [style.display]="_userType >= 0?'inherit':'none'" (click) = "OnClickSignOut()">Sign out</a></li>
-        <li><a class="FontColor" href="#" data-toggle="modal" data-target="#siginModel" [style.display]="_userType < 0?'inherit':'none'">Sign in</a></li>
-        <li><a class="FontColor" href="#" data-toggle="modal" data-target="#sigupModel" [style.display]="_userType < 0?'inherit':'none'" >Sign up</a></li>
+        <li><a class="FontColor" *ngIf="!_authenticationService.isSignIn()" (click)="onSignInClick()">Sign in</a></li>
+        <li><a class="FontColor" *ngIf="!_authenticationService.isSignIn()" (click)="onSignUpClick()">Sign up</a></li>
+        <li>
+          <a class="FontColor" *ngIf="_authenticationService.isSignIn()" (click)="onCartClick()">
+            <img id="SmallIcon" src="../assets/cart.png">
+          </a>
+        </li>
+        <li><a class="FontColor" *ngIf="_authenticationService.isSignIn()" (click)="onUserClick()">Username</a></li>
+        <li><a class="FontColor" *ngIf="_authenticationService.isSignIn()" (click)="onSignOutClick()">Sign out</a></li>
       </ul>
+
       <form class="navbar-form navbar-right" (ngSubmit)="onSearch()">
         <input type="text" class="form-control" placeholder="Search...">
       </form>
     </div>
   </div>
 </nav>
-
-<!-- Diaglog -->
-
-<ec-signin [callback]="theBoundCallback" class="modal fade" id="siginModel" role="dialog" ></ec-signin>
-<ec-mycart [_totalPrice]="totalPrice" [_cart]="updatecart" class="modal fade" id="cartModel" role="dialog"></ec-mycart>
-<ec-signup class="modal fade" id="sigupModel" role="dialog" ></ec-signup>
-<ec-payment class="modal fade" id="paymentModel" role="dialog"></ec-payment>
-<ec-profile [(_user)]="updateUser" class="modal fade" id="profileModel" role="dialog"></ec-profile>
-
-<!-- End Diaglog -->

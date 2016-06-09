@@ -1,6 +1,8 @@
 /**
  * This barrel file provides the exports for the shared resources (services, components).
  */
+export * from './cart/index';
+export * from './authentication/index';
 export * from './product/index';
 export * from './navbar/index';
 export * from './sidebar/index';
@@ -12,3 +14,4 @@ export * from './signup/index';
 export * from './mycart/index';
 export * from './payment/index';
 export * from './profile/index';
+export * from './valuespipe/index';

@@ -1,37 +1,43 @@
-import { Component,Input} from '@angular/core';
+import { Component,Input, OnInit} from '@angular/core';
 import { UserService } from '../user/user.service';
 import { Cart } from '../cart/cart';
-
+import { AuthenticationService } from '../authentication/authentication.service';
+import { ValuesPipe } from '../valuespipe/values.pipe';
+import { CartService } from '../cart/cart.service';
 
 @Component({
   moduleId: module.id,
   selector: 'ec-mycart',
   templateUrl: 'mycart.component.html',
   styleUrls: ['mycart.component.css'],
+	pipes: [ValuesPipe]
 })
-export class MyCartComponent{ 
+export class MyCartComponent implements OnInit{ 
 	
-	@Input()
-	_cart: Cart;
-	
-	@Input()
-	_totalPrice: number;
-	
-	constructor(private _userService: UserService) {
+	constructor(private _cartService: CartService,
+		private _authenticationService: AuthenticationService) {
 	}
   
-  //This region use for implement the event listener.
-	OnClickRemove(index:number):void{
-		alert("Remove was pressed");
-		
-		this._userService.removeOneProductFromCart(index);
-	}
-	onChangeAnmout():void{
-		this._totalPrice = 0;
-		for(let i =0;i<this._cart.products.length;i++){
-			this._totalPrice += this._cart.products[i].price * this._cart.products[i].amount;
+	ngOnInit(): void {
+		if (this._authenticationService.isSignIn()) {
+			this._cartService.init();
 		}
 	}
-  
-  //End event listener
+
+	onRemoveClick(id: string): void {
+		this._cartService.removeItem(id);
+	}
+
+	onQuantityChange(value: any, id: string):void{
+		this._cartService.setQuantity(id, value);
+	}
+
+	calculateTotal() {
+		let total: number = 0;
+		this._cartService.getItems().forEach(item => {
+			total += (+item.price) * (+item.quantity);
+		});
+
+		return total;
+	}
 }

@@ -1,24 +1,20 @@
-<h1>{{ _title }}</h1>
-<hr>
-
 <div class="col-md-4 animtedComponentShortDetail-{{ (idx%9) + 1 }}" *ngFor="let product of _products; let idx = index">
-	<div class="panel panel-default">
+	<div id="ContainerPanel" class="panel panel-default">
 		<div class="panel-body">
 			<div class="row">
-				<img class="col-md-5 img-responsive" [src]="product.imgUrl">
+				<a [routerLink]="['/', _category.id,'/', product.id]">
+					<img class="col-md-5 img-responsive testing" [src]="product.imgUrl">
+				</a>
 				<div class="col-md-7">
-					<h2>{{product.name}}</h2>
-					<p>{{product.shortDetail}}...</p>
-					<a href="#" [routerLink]="['/', _title,'/',idx]">More info...</a>
-					<h4>Price: <span id="BigPrice">{{product.price}}$</span></h4>
+					<div id="DetailProductContainer" class="row">
+						<h4>{{product.name}}</h4>
+						<h4>Price: <span id="BigPrice">{{product.price}}$</span></h4>
+					</div>
 					<div class="row">
-						<button [style.display]="_userType > 0?'none':(_userType <0?'none':'inherit')" 
-						class="btn btn-success col-md-12"
-						(click)="OnClickAddProductToCart(product)"> Add to Cart</button>
+					<button *ngIf="_authenticationService.isSignIn()" class="btn btn-success" (click)="onAddToCartClick(product.id)">Add to Cart</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>    
-

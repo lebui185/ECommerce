@@ -1,7 +1,4 @@
-<h1>{{_title}}</h1>
-<hr>
-
-<div class="animatedDetail">
+<div *ngIf="_product != null" class="animatedDetail">
 	<div class = "panel panel-default">
 		<div class="panel-body">
 			<div class="row">
@@ -11,30 +8,10 @@
 					<p>{{_product.detail}}<p>
 					<h3>Price: <span id="VeryBigPrice">{{_product.price}}$</span></h3>
 					<div class = "row">
-					
-						<button [style.display]="_userType > 0?'inherit':'none'" 
-						class="btn btn-primary btn-lg col-md-4 col-md-push-4"
-						(click)="OnClickUpdateProduct()"> Update Product</button>
-						
-						<button [style.display]="_userType > 0?'inherit':'none'" 
-						class="btn btn-danger btn-lg col-md-4 col-md-push-4"
-						(click)="OnClickRemoveProduct()"> Remove Product</button>
-						
-					</div>
-					<div class = "row">
-						<h2 class="col-md-3" [style.display]="_userType > 0?'none':(_userType <0?'none':'inherit')">Amount:</h2>
-						<input [style.display]="_userType > 0?'none':(_userType <0?'none':'inherit')"
-						type="number" min="1" [(ngModel)] = "_amount" class="col-md-2 input-lg">
-						<button id="Addtocart" [style.display]="_userType > 0?'none':(_userType <0?'none':'inherit')" 
-						class="btn btn-success btn-lg col-md-4 col-md-push-2"
-						(click)="OnClickAddProductToCart()"> Add to Cart</button>
-						
+						<button *ngIf="_authenticationService.isSignIn()" class="btn btn-success" (click)="onAddToCartClick(_product.id)">Add to Cart</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
-
-

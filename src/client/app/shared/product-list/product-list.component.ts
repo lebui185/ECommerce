@@ -3,7 +3,9 @@ import { OnActivate, RouteSegment } from '@angular/router';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Product } from '../product/product';
 import { ProductService } from '../product/product.service';
-import { UserService } from '../user/user.service';
+import { CartService } from '../cart/cart.service';
+import { AuthenticationService } from '../authentication/authentication.service';
+import { ValuesPipe } from '../valuespipe/values.pipe';
 
 @Component({
   moduleId: module.id,
@@ -11,45 +13,45 @@ import { UserService } from '../user/user.service';
   templateUrl: 'product-list.component.html',
   styleUrls: ['product-list.component.css'],
   directives: [ROUTER_DIRECTIVES],
+  pipes: [ValuesPipe]
 })
 export class ProductListComponent implements OnActivate { 
-  _title: string = "Product List";
-  _products: Product[];
-  _userType:number =  -1;
+  _products: any[];
+  _category: any;
 
   constructor(private _productService: ProductService,
-				private _userService: UserService) {
+        private _cartService: CartService,
+				private _authenticationService: AuthenticationService) {
 
   }
   
   routerOnActivate(routeSegment: RouteSegment): void {
-    let category = routeSegment.getParam('category');
-    console.log(category);
-    this._title = category;
-	
-    this._products = this._productService.getProducts(category);
-	this._userType = this._userService.getUserType();
-    console.log("userType: " + this._userType);
-    console.log(this._products[0].name);
+    let categoryId = routeSegment.getParam('category');
+    this._productService.getCategory(categoryId).then((snapshot: any) => {
+      this._category = snapshot.val();
+      this._category["id"] = categoryId;
+      this.getProductsByCategory(this._category);
+    });
+
+  }
+
+  getProductsByCategory(category: any): void {
+    let productsObj = category["productsIds"];
+    if (productsObj != undefined) {
+        let productIds = Object.keys(productsObj);
+        this._products = [];
+        productIds.forEach(element => {
+          
+          this._productService.getProduct(element).then((snapshot: any) => {
+            let product = snapshot.val();
+            product["id"] = element;
+            this._products.push(product);
+          });
+        });
+    }
   }
   
-  OnClickAddProductToCart(product:Product): void{
-		alert("Add product was pressed");
-		console.log("Add product was pressed");
-		console.log(product)
-		
-		this._userService.addToCart(product,1);
-		
-		//TestDev
-		
-		let Test = this._userService.getCart();
-		console.log("Product in Cart");
-		console.log("Length is " + Test.products.length);
-		for(let i = 0; i<Test.products.length; i++){
-			console.log("Product in " + i);
-			console.log(Test.products[i]);
-		}
-		console.log("End Product in Cart");
-		//TestDev
+  onAddToCartClick(productId: string): void{
+    this._cartService.add(productId, 1);
   }
 }

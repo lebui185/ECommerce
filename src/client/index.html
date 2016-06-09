@@ -62,6 +62,15 @@
       console.error(e,
         'Report this error at https://github.com/mgechev/angular2-seed/issues');
     });
+
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyC1yLJEU2jbSWSrC_Wr3ptJZZQR0kP1b-4",
+      authDomain: "ecommerce-7387f.firebaseapp.com",
+      databaseURL: "https://ecommerce-7387f.firebaseio.com",
+      storageBucket: "ecommerce-7387f.appspot.com",
+    };
+    firebase.initializeApp(config);
   </script>
   <% } %>
 

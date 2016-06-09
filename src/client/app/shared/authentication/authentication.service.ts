@@ -10,10 +10,27 @@ export class AuthenticationService {
     private _signInFailedCallback: any;
     private _signOutSuccessCallback: any;
     private _signOutFailedCallback: any;
-    
-    signUp(email: string, password: string, phoneNumber: string, identityNumber: string) {
+
+    getUserId(): string {
+        return firebase.auth().currentUser.uid;
+    }
+
+    signUp(email: string, password: string, phoneNumber: string, identityNum: string) {
         firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then(this._signUpSuccessCallback)
+            .then(() => {
+                 firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
+                     let uid = firebase.auth().currentUser.uid;
+                     firebase.database().ref('users/').child(uid).set({
+                        cart: {},
+                        identityNumber: identityNum,
+                        phone: phoneNumber,
+                        orders: {}
+                    });
+
+                    this._signUpSuccessCallback();
+                 });
+
+            })
             .catch(this._signUpFailedCallback);
 
             // set phoneNumber, set identityNumber
@@ -41,7 +58,18 @@ export class AuthenticationService {
         }
 
          firebase.auth().signInWithPopup(provider)
-            .then(this._signInSuccessCallback)
+            .then(() => {                
+                let uid = firebase.auth().currentUser.uid;
+                if (firebase.database().ref('users/' + uid) == null) {
+                    firebase.database().ref('users/').child(uid).set({
+                        email: firebase.auth().currentUser.providerData[0].email,
+                        cart: {},
+                        orders: {}
+                    });
+                } 
+                
+                this._signInSuccessCallback();
+            })
             .catch(this._signInFailedCallback);
     }
 
