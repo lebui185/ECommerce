@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Product } from './product'
 
 declare var firebase: any;
 

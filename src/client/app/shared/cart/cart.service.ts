@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Cart } from './cart';
-import { Product } from '../product/product';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { ProductService } from '../product/product.service';
 

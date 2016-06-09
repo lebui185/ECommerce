@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { OnActivate, RouteSegment } from '@angular/router';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-import { Product } from '../product/product';
 import { ProductService } from '../product/product.service';
 import { CartService } from '../cart/cart.service';
 import { AuthenticationService } from '../authentication/authentication.service';
