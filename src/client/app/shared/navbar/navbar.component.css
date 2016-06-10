@@ -13,6 +13,7 @@
 
 .FontColor{
 	color:white;
+  cursor: pointer;
 }
 
 .icon-bar{
@@ -22,5 +23,5 @@
 .navbar-inner .navbar-nav > li > a:hover,
 .navbar-inner .navbar-nav > li > a:focus {
     background-color: #388E3C;
-    color: #white;
+    color: white;
 }

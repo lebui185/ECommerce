@@ -1,6 +1,4 @@
 import { Component,Input, OnInit} from '@angular/core';
-import { UserService } from '../user/user.service';
-import { Cart } from '../cart/cart';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { ValuesPipe } from '../valuespipe/values.pipe';
 import { CartService } from '../cart/cart.service';

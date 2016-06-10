@@ -12,7 +12,7 @@
 						<div class="form-group">
 							<label for="email">Email:</label>
 							<input [(ngModel)]="_email" ngControl="email" type="email" class="form-control" id="email"
-										required>
+										required pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;'>
 						</div>
 
 						<div class="form-group">
